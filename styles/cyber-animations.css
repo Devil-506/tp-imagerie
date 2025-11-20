@@ -1,0 +1,249 @@
+@keyframes neural-network {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.neural-animation {
+  background: linear-gradient(
+    -45deg,
+    var(--bio-cyan),
+    var(--bio-purple),
+    var(--bio-magenta),
+    var(--bio-green)
+  );
+  background-size: 400% 400%;
+  animation: neural-network 8s ease infinite;
+}
+
+/* === DNA SEQUENCE ANIMATION === */
+.dna-sequence {
+  display: inline-block;
+  font-family: var(--font-matrix);
+  color: var(--bio-green);
+}
+
+.dna-sequence::after {
+  content: '|';
+  animation: dna-blink 1s step-end infinite;
+}
+
+@keyframes dna-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* === QUANTUM ENTANGLEMENT === */
+.quantum-pair {
+  position: relative;
+}
+
+.quantum-pair::before,
+.quantum-pair::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--bio-cyan);
+  border-radius: 50%;
+  animation: quantum-entangle 2s ease-in-out infinite;
+}
+
+.quantum-pair::before {
+  top: -10px;
+  left: -10px;
+}
+
+.quantum-pair::after {
+  bottom: -10px;
+  right: -10px;
+  animation-delay: -1s;
+}
+
+@keyframes quantum-entangle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+}
+
+/* === CYBER WAVE DISTORTION === */
+.wave-distortion {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-distortion::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 245, 255, 0.1),
+    transparent
+  );
+  animation: wave-scan 3s linear infinite;
+}
+
+@keyframes wave-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* === BIOMETRIC PULSE === */
+.biometric-pulse {
+  position: relative;
+}
+
+.biometric-pulse::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--bio-green);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  animation: biometric-pulse-wave 2s ease-out infinite;
+}
+
+@keyframes biometric-pulse-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+/* === CYBER GLITCH EFFECT === */
+.cyber-glitch {
+  position: relative;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.cyber-glitch::before,
+.cyber-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cyber-glitch::before {
+  animation: glitch-anim 0.5s infinite linear alternate-reverse;
+  color: var(--bio-magenta);
+  z-index: -1;
+}
+
+.cyber-glitch::after {
+  animation: glitch-anim2 0.5s infinite linear alternate-reverse;
+  color: var(--bio-cyan);
+  z-index: -2;
+}
+
+@keyframes glitch-anim {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  10% {
+    transform: skew(2deg);
+  }
+  20% {
+    transform: skew(0deg);
+  }
+  30% {
+    transform: skew(-2deg);
+  }
+  40% {
+    transform: skew(0deg);
+  }
+  50% {
+    transform: skew(1deg);
+  }
+  60% {
+    transform: skew(0deg);
+  }
+  70% {
+    transform: skew(-1deg);
+  }
+  80% {
+    transform: skew(0deg);
+  }
+  90% {
+    transform: skew(0.5deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}

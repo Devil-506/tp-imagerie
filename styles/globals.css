@@ -1,0 +1,689 @@
+/* src/styles/globals.css */
+:root {
+  /* Cyber Biomedical Color Palette */
+  --bio-cyan: #00f5ff;
+  --bio-magenta: #ff00ff;
+  --bio-purple: #9d4edd;
+  --bio-green: #00ff88;
+  --bio-orange: #ff6b35;
+  
+  /* Neural Network Gradients */
+  --gradient-neural: linear-gradient(135deg, var(--bio-cyan) 0%, var(--bio-purple) 50%, var(--bio-magenta) 100%);
+  --gradient-bio: linear-gradient(135deg, var(--bio-green) 0%, var(--bio-cyan) 100%);
+  --gradient-danger: linear-gradient(135deg, var(--bio-orange) 0%, #ff0000 100%);
+  
+  /* Depth Colors */
+  --depth-0: #050510;
+  --depth-1: #0a0a18;
+  --depth-2: #0f0f20;
+  --depth-3: #141428;
+  --depth-4: #1a1a30;
+  
+  /* Glass Morphism */
+  --glass-light: rgba(255, 255, 255, 0.1);
+  --glass-dark: rgba(0, 0, 0, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  
+  /* Neuro Glows */
+  --glow-cyan: 0 0 20px rgba(0, 245, 255, 0.6);
+  --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.6);
+  --glow-green: 0 0 20px rgba(0, 255, 136, 0.6);
+  --glow-purple: 0 0 20px rgba(157, 78, 221, 0.6);
+  
+  /* Matrix Text */
+  --matrix-green: #00ff41;
+  --matrix-dark: #003b00;
+  
+  /* Unique Shadows */
+  --shadow-hologram: 
+    0 0 10px var(--bio-cyan),
+    0 0 20px var(--bio-cyan),
+    0 0 40px var(--bio-cyan);
+    
+  --shadow-neural:
+    0 0 10px var(--bio-purple),
+    0 0 20px var(--bio-purple),
+    inset 0 0 20px rgba(157, 78, 221, 0.1);
+  
+  /* Futuristic Borders */
+  --border-glow: 1px solid rgba(0, 245, 255, 0.3);
+  --border-hologram: 1px solid transparent;
+  --border-gradient: linear-gradient(90deg, var(--bio-cyan), var(--bio-magenta)) 1;
+  
+  /* Advanced Typography */
+  --font-primary: 'Orbitron', 'Segoe UI', monospace;
+  --font-matrix: 'Courier New', monospace;
+  --font-bio: 'Exo 2', sans-serif;
+  
+  /* Unique Spacing */
+  --space-quantum: 0.25rem;
+  --space-neural: 0.5rem;
+  --space-synaptic: 1rem;
+  --space-cellular: 1.5rem;
+  --space-molecular: 2rem;
+  --space-atomic: 3rem;
+  
+  /* Cyber Radius */
+  --radius-hud: 0.5rem;
+  --radius-interface: 1rem;
+  --radius-terminal: 1.5rem;
+  --radius-bio: 2rem;
+}
+
+/* === CYBER BIOMEDICAL RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--depth-0);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, var(--depth-0) 0%, var(--depth-1) 100%);
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-bio);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  background: transparent;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === CYBER SCAN LINES EFFECT === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(0, 245, 255, 0.03) 50%
+    );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: scan 4s linear infinite;
+}
+
+/* === MATRIX RAIN BACKGROUND === */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      var(--bio-cyan) 2px,
+      var(--bio-cyan) 4px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* === CYBER TYPOGRAPHY === */
+.cyber-text {
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: var(--gradient-neural);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: var(--glow-cyan);
+}
+
+.bio-text {
+  font-family: var(--font-bio);
+  background: linear-gradient(135deg, #ffffff 0%, var(--bio-cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.matrix-text {
+  font-family: var(--font-matrix);
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green);
+}
+
+/* === GLASS MORPHISM === */
+.glass-panel {
+  background: rgba(10, 10, 24, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-interface);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-terminal);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* === HOLOGRAM EFFECTS === */
+.hologram {
+  position: relative;
+  background: transparent;
+  border: var(--border-hologram);
+  box-shadow: var(--shadow-hologram);
+  animation: hologram-flicker 3s infinite alternate;
+}
+
+.hologram::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-neural);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(10px);
+}
+
+/* === NEURAL NETWORK GRIDS === */
+.neural-grid {
+  background-image: 
+    linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+
+.bio-circuit {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(255, 0, 255, 0.1) 2px, transparent 2px);
+  background-size: 100px 100px;
+}
+
+/* === CYBER BUTTONS === */
+.cyber-button {
+  position: relative;
+  padding: var(--space-synaptic) var(--space-cellular);
+  background: var(--depth-3);
+  border: 1px solid var(--bio-cyan);
+  border-radius: var(--radius-hud);
+  color: var(--bio-cyan);
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 245, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.cyber-button:hover {
+  background: var(--depth-4);
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-2px);
+}
+
+.cyber-button:active {
+  transform: translateY(0);
+}
+
+.cyber-button.primary {
+  background: var(--gradient-neural);
+  color: white;
+  border: none;
+}
+
+.cyber-button.bio {
+  background: var(--gradient-bio);
+  color: var(--depth-0);
+  border: none;
+  font-weight: 600;
+}
+
+.cyber-button.danger {
+  background: var(--gradient-danger);
+  color: white;
+  border: none;
+}
+
+/* === CYBER INPUTS === */
+.cyber-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--bio-cyan);
+  border-radius: var(--radius-hud);
+  padding: var(--space-synaptic) var(--space-neural);
+  color: var(--bio-cyan);
+  font-family: var(--font-matrix);
+  transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+  outline: none;
+  box-shadow: var(--glow-cyan);
+  background: rgba(0, 245, 255, 0.1);
+}
+
+.cyber-input::placeholder {
+  color: rgba(0, 245, 255, 0.5);
+}
+
+/* === DATA VISUALIZATION === */
+.bio-gauge {
+  position: relative;
+  background: var(--depth-2);
+  border-radius: var(--radius-bio);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.bio-gauge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--gradient-bio);
+  width: var(--progress, 0%);
+  transition: width 1s ease-in-out;
+}
+
+.bio-gauge.danger::before {
+  background: var(--gradient-danger);
+}
+
+.bio-gauge.warning::before {
+  background: linear-gradient(135deg, var(--bio-orange) 0%, #ffa500 100%);
+}
+
+/* === CYBER PROGRESS BARS === */
+.cyber-progress {
+  height: 4px;
+  background: var(--depth-3);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cyber-progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--gradient-neural);
+  width: var(--progress, 0%);
+  animation: progress-glow 2s ease-in-out infinite;
+}
+
+/* === UNIQUE ANIMATIONS === */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes hologram-flicker {
+  0%, 100% {
+    opacity: 1;
+    filter: hue-rotate(0deg);
+  }
+  33% {
+    opacity: 0.8;
+    filter: hue-rotate(60deg);
+  }
+  66% {
+    opacity: 0.9;
+    filter: hue-rotate(-60deg);
+  }
+}
+
+@keyframes neural-pulse {
+  0%, 100% {
+    box-shadow: var(--glow-cyan);
+  }
+  25% {
+    box-shadow: var(--glow-purple);
+  }
+  50% {
+    box-shadow: var(--glow-magenta);
+  }
+  75% {
+    box-shadow: var(--glow-green);
+  }
+}
+
+@keyframes bio-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px var(--bio-green));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px var(--bio-green));
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100vh;
+  }
+}
+
+@keyframes progress-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
+  }
+}
+
+@keyframes cyber-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* === CYBER COMPONENTS === */
+.cyber-terminal {
+  background: var(--depth-1);
+  border: 1px solid var(--bio-cyan);
+  border-radius: var(--radius-terminal);
+  padding: var(--space-cellular);
+  font-family: var(--font-matrix);
+  color: var(--bio-cyan);
+  box-shadow: 
+    inset 0 0 20px rgba(0, 245, 255, 0.1),
+    0 0 20px rgba(0, 245, 255, 0.2);
+}
+
+.cyber-hud {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--bio-green);
+  border-radius: var(--radius-hud);
+  padding: var(--space-neural);
+  font-family: var(--font-primary);
+  color: var(--bio-green);
+  text-shadow: 0 0 10px var(--bio-green);
+}
+
+.bio-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bio-green);
+  box-shadow: 0 0 10px var(--bio-green);
+  animation: bio-glow 2s ease-in-out infinite;
+}
+
+.bio-indicator.warning {
+  background: var(--bio-orange);
+  box-shadow: 0 0 10px var(--bio-orange);
+}
+
+.bio-indicator.danger {
+  background: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+/* === CYBER SCROLLBARS === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--depth-1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-neural);
+  border-radius: 4px;
+  border: 1px solid var(--bio-cyan);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-bio);
+  box-shadow: var(--glow-cyan);
+}
+
+/* === RESPONSIVE CYBER DESIGN === */
+@media (max-width: 768px) {
+  :root {
+    --space-synaptic: 0.75rem;
+    --space-cellular: 1rem;
+    --space-molecular: 1.5rem;
+  }
+  
+  .cyber-text {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+  }
+}
+
+/* === CYBER SELECTION === */
+::selection {
+  background: rgba(0, 245, 255, 0.3);
+  color: white;
+  text-shadow: 0 0 10px var(--bio-cyan);
+}
+
+::-moz-selection {
+  background: rgba(0, 245, 255, 0.3);
+  color: white;
+  text-shadow: 0 0 10px var(--bio-cyan);
+}
+
+/* === CYBER FOCUS STATES === */
+.cyber-focus:focus {
+  outline: 2px solid var(--bio-cyan);
+  outline-offset: 2px;
+  box-shadow: var(--glow-cyan);
+}
+
+/* === BIOMEDICAL DATA VISUALIZATION === */
+.dna-helix {
+  position: relative;
+  width: 100px;
+  height: 200px;
+}
+
+.dna-strand {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: var(--bio-cyan);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dna-base {
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  background: var(--bio-magenta);
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--rotation, 0deg));
+  animation: dna-rotate 4s linear infinite;
+}
+
+@keyframes dna-rotate {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+/* === QUANTUM LOADING === */
+.quantum-loader {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.quantum-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--bio-cyan);
+  border-radius: 50%;
+  animation: quantum-orbit 2s linear infinite;
+}
+
+.quantum-particle:nth-child(2) {
+  animation-delay: -0.5s;
+  background: var(--bio-magenta);
+}
+
+.quantum-particle:nth-child(3) {
+  animation-delay: -1s;
+  background: var(--bio-green);
+}
+
+.quantum-particle:nth-child(4) {
+  animation-delay: -1.5s;
+  background: var(--bio-purple);
+}
+
+@keyframes quantum-orbit {
+  0% {
+    transform: rotate(0deg) translateX(30px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+
+/* === CYBER GRADIENTS UTILITIES === */
+.gradient-text-neural {
+  background: var(--gradient-neural);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+.gradient-text-bio {
+  background: var(--gradient-bio);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+.gradient-border {
+  border: 1px solid transparent;
+  background: 
+    linear-gradient(var(--depth-1), var(--depth-1)) padding-box,
+    var(--gradient-neural) border-box;
+  border-radius: var(--radius-interface);
+}
+
+/* === UNIQUE CYBER SHADOWS === */
+.neural-glow {
+  box-shadow: 
+    0 0 20px rgba(0, 245, 255, 0.3),
+    0 0 40px rgba(157, 78, 221, 0.2),
+    0 0 60px rgba(255, 0, 255, 0.1);
+}
+
+.bio-glow {
+  box-shadow: 
+    0 0 20px rgba(0, 255, 136, 0.3),
+    0 0 40px rgba(0, 255, 136, 0.2),
+    inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.danger-glow {
+  box-shadow: 
+    0 0 20px rgba(255, 107, 53, 0.3),
+    0 0 40px rgba(255, 0, 0, 0.2),
+    inset 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+/* === CYBER TRANSITIONS === */
+.cyber-transition {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.quantum-transition {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* === BIOMEDICAL STATUS INDICATORS === */
+.status-pass {
+  color: var(--bio-green);
+  text-shadow: 0 0 10px var(--bio-green);
+}
+
+.status-fail {
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.status-warning {
+  color: var(--bio-orange);
+  text-shadow: 0 0 10px var(--bio-orange);
+}
+
+.status-neutral {
+  color: var(--bio-cyan);
+  text-shadow: 0 0 10px var(--bio-cyan);
+}
